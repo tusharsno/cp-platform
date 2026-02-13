@@ -118,7 +118,7 @@ const topics = [
   },
 ];
 
-// Framer Motion Variants with proper TypeScript types
+// Explicitly defining Variants type to avoid TypeScript inference issues
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -134,7 +134,8 @@ const cardVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: "easeOut" as const, // 'as const' fixes the Vercel build error
+      // Using a numeric array for easing is the most type-safe way in Framer Motion
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
@@ -188,11 +189,12 @@ export default function PopularTopics() {
             return (
               <motion.div key={index} variants={cardVariants}>
                 <Link
-                  href={`/topics/${topic.name.toLowerCase().replace(" ", "-")}`}
+                  href={`/topics/${topic.name.toLowerCase().replace(/\s+/g, "-")}`}
                 >
                   <Card
                     className={`group relative border border-white/5 bg-card/40 backdrop-blur-md shadow-xl transition-all duration-300 hover:shadow-primary/5 ${topic.border} overflow-hidden`}
                   >
+                    {/* Hover Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                     <CardContent className="p-8 relative z-10">
@@ -222,12 +224,13 @@ export default function PopularTopics() {
                             </span>
                           </div>
 
+                          {/* Progress Bar with Motion */}
                           <div className="h-1.5 w-full bg-muted/50 rounded-full overflow-hidden">
                             <motion.div
                               initial={{ width: 0 }}
                               whileInView={{ width: `${progress}%` }}
                               transition={{ duration: 1, delay: 0.5 }}
-                              className={`h-full rounded-full bg-gradient-to-r from-primary to-primary/60`}
+                              className="h-full rounded-full bg-gradient-to-r from-primary to-primary/60"
                             />
                           </div>
                         </div>
