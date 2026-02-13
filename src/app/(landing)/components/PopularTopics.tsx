@@ -83,7 +83,7 @@
 // 10/02/2026
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Layers, BrainCircuit, Zap, ArrowRight, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
@@ -118,8 +118,8 @@ const topics = [
   },
 ];
 
-// Framer Motion Variants for Staggered Animation
-const containerVariants = {
+// Framer Motion Variants with proper TypeScript types
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -127,9 +127,16 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const, // 'as const' fixes the Vercel build error
+    },
+  },
 };
 
 export default function PopularTopics() {
@@ -186,7 +193,6 @@ export default function PopularTopics() {
                   <Card
                     className={`group relative border border-white/5 bg-card/40 backdrop-blur-md shadow-xl transition-all duration-300 hover:shadow-primary/5 ${topic.border} overflow-hidden`}
                   >
-                    {/* Hover Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                     <CardContent className="p-8 relative z-10">
@@ -216,7 +222,6 @@ export default function PopularTopics() {
                             </span>
                           </div>
 
-                          {/* Premium Progress Bar */}
                           <div className="h-1.5 w-full bg-muted/50 rounded-full overflow-hidden">
                             <motion.div
                               initial={{ width: 0 }}
