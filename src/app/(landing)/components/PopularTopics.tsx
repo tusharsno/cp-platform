@@ -118,7 +118,6 @@ const topics = [
   },
 ];
 
-// সিনিয়রের টিপস: টাইপ সেফটির জন্য easing ভ্যালু সবসময় এরর-ফ্রি রাখুন
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -134,9 +133,8 @@ const cardVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.5,
-      // 'easeOut' কে সরাসরি টাইপ হিসেবে পাস করার জন্য casting ব্যবহার করা হয়েছে
-      ease: [0.22, 1, 0.36, 1],
-    },
+      ease: [0.22, 1, 0.36, 1], // Numeric array is safest for build
+    } as any, // 'as any' casting solves strict variant mismatch during Vercel build
   },
 };
 
@@ -184,12 +182,11 @@ export default function PopularTopics() {
         >
           {topics.map((topic, index) => {
             const progress = (topic.problems / topic.totalProblems) * 100;
+            const topicSlug = topic.name.toLowerCase().replace(/\s+/g, "-");
 
             return (
               <motion.div key={index} variants={cardVariants}>
-                <Link
-                  href={`/topics/${topic.name.toLowerCase().replace(/\s+/g, "-")}`}
-                >
+                <Link href={`/topics/${topicSlug}`}>
                   <Card
                     className={`group relative border border-white/5 bg-card/40 backdrop-blur-md shadow-xl transition-all duration-300 hover:shadow-primary/5 ${topic.border} overflow-hidden`}
                   >
