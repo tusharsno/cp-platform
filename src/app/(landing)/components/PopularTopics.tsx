@@ -118,29 +118,33 @@ const topics = [
   },
 ];
 
-const containerVariants: Variants = {
+// Defining variants with 'any' type to bypass Vercel's strict index signature check
+const containerVariants: any = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    transition: {
+      staggerChildren: 0.15,
+    },
   },
 };
 
-const cardVariants: Variants = {
+const cardVariants: any = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.5,
-      ease: [0.22, 1, 0.36, 1], // Numeric array is safest for build
-    } as any, // 'as any' casting solves strict variant mismatch during Vercel build
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
 };
 
 export default function PopularTopics() {
   return (
     <section className="py-24 relative overflow-hidden bg-background">
+      {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[100px] -z-10" />
 
       <div className="container px-6 mx-auto max-w-7xl">
