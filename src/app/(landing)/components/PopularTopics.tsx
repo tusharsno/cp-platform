@@ -284,7 +284,7 @@ const topics = [
   },
 ];
 
-// Proper Type definition instead of 'any' to satisfy the TypeScript compiler
+// Container animation
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -295,6 +295,7 @@ const containerVariants: Variants = {
   },
 };
 
+// Card animation (Vercel-safe)
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -302,9 +303,7 @@ const cardVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.5,
-      // Fixed: Framer Motion v12 works best with named easings
-      // or explicit cubic-bezier cast if using custom values.
-      ease: [0.22, 1, 0.36, 1],
+      ease: "easeInOut", // ✔ Valid easing for Framer v12
     },
   },
 };
@@ -326,9 +325,11 @@ export default function PopularTopics() {
               <Sparkles className="w-4 h-4" />
               Learning Path
             </div>
+
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
               Popular Topics
             </h2>
+
             <p className="mt-3 text-muted-foreground/80 max-w-md leading-relaxed italic">
               Master the core algorithms through our hand-picked problem sets.
             </p>
@@ -340,67 +341,44 @@ export default function PopularTopics() {
           >
             View All Topics
             <div className="p-1 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4" />
             </div>
           </Link>
         </div>
 
+        {/* Cards Section */}
         <motion.div
+          className="grid md:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {topics.map((topic, index) => {
-            const progress = (topic.problems / topic.totalProblems) * 100;
-            const topicSlug = topic.name.toLowerCase().replace(/\s+/g, "-");
+            const Icon = topic.icon;
 
             return (
               <motion.div key={index} variants={cardVariants}>
-                <Link href={`/topics/${topicSlug}`}>
+                <Link
+                  href={`/topics/${topic.name.toLowerCase().replace(" ", "-")}`}
+                >
                   <Card
-                    className={`group relative border border-white/5 bg-card/40 backdrop-blur-md shadow-xl transition-all duration-300 hover:shadow-primary/5 ${topic.border} overflow-hidden`}
+                    className={`group border bg-card hover:shadow-lg transition-all p-6 ${topic.border}`}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                    <CardContent className="p-8 relative z-10">
-                      <div className="flex items-start justify-between mb-8">
-                        <div
-                          className={`p-4 rounded-2xl ${topic.bg} ${topic.color} transition-transform duration-500 group-hover:scale-110 shadow-inner`}
-                        >
-                          <topic.icon className="h-7 w-7" />
-                        </div>
-                        <div className="text-right text-[10px] font-bold text-muted-foreground/40 tracking-widest uppercase">
-                          {topic.problems > 0 ? "In Progress" : "Not Started"}
-                        </div>
+                    <CardContent className="p-0">
+                      <div
+                        className={`w-12 h-12 rounded-lg flex items-center justify-center ${topic.bg} mb-4`}
+                      >
+                        <Icon className={`w-6 h-6 ${topic.color}`} />
                       </div>
 
-                      <div className="space-y-4">
-                        <h3 className="font-extrabold text-xl group-hover:text-primary transition-colors">
-                          {topic.name}
-                        </h3>
+                      <h3 className="text-lg font-bold text-foreground mb-2">
+                        {topic.name}
+                      </h3>
 
-                        <div className="space-y-2">
-                          <div className="flex justify-between text-xs font-medium">
-                            <span className="text-muted-foreground">
-                              {topic.problems} / {topic.totalProblems} Solved
-                            </span>
-                            <span className="text-primary">
-                              {Math.round(progress)}%
-                            </span>
-                          </div>
-
-                          <div className="h-1.5 w-full bg-muted/50 rounded-full overflow-hidden">
-                            <motion.div
-                              initial={{ width: 0 }}
-                              whileInView={{ width: `${progress}%` }}
-                              transition={{ duration: 1, delay: 0.5 }}
-                              className="h-full rounded-full bg-gradient-to-r from-primary to-primary/60"
-                            />
-                          </div>
-                        </div>
-                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        {topic.problems} / {topic.totalProblems} problems solved
+                      </p>
                     </CardContent>
                   </Card>
                 </Link>
