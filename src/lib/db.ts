@@ -1,27 +1,18 @@
-// import { PrismaClient } from "@prisma/client";
-// // import { PrismaClient } from "../../generated/prisma";
-// // import { PrismaClient } from "@/generated/prisma";
-
-// const globalForPrisma = globalThis as unknown as {
-//   prisma: PrismaClient | undefined;
-// };
-
-// export const db = globalForPrisma.prisma ?? new PrismaClient();
-
-// if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = db;
-
 import { PrismaClient } from "@prisma/client";
 
-const prismaClientSingleton = () => {
-  return new PrismaClient();
-};
-
 declare global {
-  var prisma: undefined | ReturnType<typeof prismaClientSingleton>;
+  var prisma: undefined | PrismaClient;
 }
 
-const db = globalThis.prisma ?? prismaClientSingleton();
+const db = new Proxy({} as PrismaClient, {
+  get(_target, prop: string | symbol) {
+    if (!globalThis.prisma) {
+      globalThis.prisma = new PrismaClient({
+        datasourceUrl: process.env.DATABASE_URL,
+      });
+    }
+    return Reflect.get(globalThis.prisma, prop);
+  },
+});
 
 export default db;
-
-if (process.env.NODE_ENV !== "production") globalThis.prisma = db;
