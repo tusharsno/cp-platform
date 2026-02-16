@@ -1,0 +1,148 @@
+import { Problem } from "@/types";
+
+export const stringProblems: Problem[] = [
+  {
+    id: "valid-palindrome",
+    title: "Valid Palindrome",
+    difficulty: "Easy",
+    category: "String",
+    order: 1,
+    link: "https://leetcode.com/problems/valid-palindrome/",
+    problemStatement:
+      "Given a string s, return true if it is a palindrome, or false otherwise. Consider only alphanumeric characters and ignore cases.",
+    constraints: "1 <= s.length <= 2 * 10^5",
+    starterCode: "function isPalindrome(s) {\n  // Write your code here\n};",
+    handlerFunction: "isPalindrome",
+    starterFunctionName: "isPalindrome",
+  },
+  {
+    id: "valid-anagram",
+    title: "Valid Anagram",
+    difficulty: "Easy",
+    category: "String",
+    order: 2,
+    link: "https://leetcode.com/problems/valid-anagram/",
+    problemStatement:
+      "Given two strings s and t, return true if t is an anagram of s, and false otherwise.",
+    constraints: "1 <= s.length, t.length <= 5 * 10^4",
+    starterCode: "function isAnagram(s, t) {\n  // Write your code here\n};",
+    handlerFunction: "isAnagram",
+    starterFunctionName: "isAnagram",
+  },
+  {
+    id: "longest-common-prefix",
+    title: "Longest Common Prefix",
+    difficulty: "Easy",
+    category: "String",
+    order: 3,
+    link: "https://leetcode.com/problems/longest-common-prefix/",
+    problemStatement:
+      "Write a function to find the longest common prefix string amongst an array of strings.",
+    constraints: "1 <= strs.length <= 200, 0 <= strs[i].length <= 200",
+    starterCode:
+      "function longestCommonPrefix(strs) {\n  // Write your code here\n};",
+    handlerFunction: "longestCommonPrefix",
+    starterFunctionName: "longestCommonPrefix",
+  },
+  {
+    id: "longest-substring-without-repeating-characters",
+    title: "Longest Substring Without Repeating Characters",
+    difficulty: "Medium",
+    category: "String",
+    order: 4,
+    link: "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+    problemStatement:
+      "Given a string s, find the length of the longest substring without repeating characters.",
+    constraints: "0 <= s.length <= 5 * 10^4",
+    starterCode:
+      "function lengthOfLongestSubstring(s) {\n  // Write your code here\n};",
+    handlerFunction: "lengthOfLongestSubstring",
+    starterFunctionName: "lengthOfLongestSubstring",
+  },
+  {
+    id: "longest-palindromic-substring",
+    title: "Longest Palindromic Substring",
+    difficulty: "Medium",
+    category: "String",
+    order: 5,
+    link: "https://leetcode.com/problems/longest-palindromic-substring/",
+    problemStatement:
+      "Given a string s, return the longest palindromic substring in s.",
+    constraints: "1 <= s.length <= 1000",
+    starterCode:
+      "function longestPalindrome(s) {\n  // Write your code here\n};",
+    handlerFunction: "longestPalindrome",
+    starterFunctionName: "longestPalindrome",
+  },
+  {
+    id: "group-anagrams",
+    title: "Group Anagrams",
+    difficulty: "Medium",
+    category: "String",
+    order: 6,
+    link: "https://leetcode.com/problems/group-anagrams/",
+    problemStatement:
+      "Given an array of strings strs, group the anagrams together. You can return the answer in any order.",
+    constraints: "1 <= strs.length <= 10^4, 0 <= strs[i].length <= 100",
+    starterCode:
+      "function groupAnagrams(strs) {\n  // Write your code here\n};",
+    handlerFunction: "groupAnagrams",
+    starterFunctionName: "groupAnagrams",
+  },
+  {
+    id: "string-to-integer-atoi",
+    title: "String to Integer (atoi)",
+    difficulty: "Medium",
+    category: "String",
+    order: 7,
+    link: "https://leetcode.com/problems/string-to-integer-atoi/",
+    problemStatement:
+      "Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer.",
+    constraints: "0 <= s.length <= 200",
+    starterCode: "function myAtoi(s) {\n  // Write your code here\n};",
+    handlerFunction: "myAtoi",
+    starterFunctionName: "myAtoi",
+  },
+  {
+    id: "valid-parentheses",
+    title: "Valid Parentheses",
+    difficulty: "Easy",
+    category: "String",
+    order: 8,
+    link: "https://leetcode.com/problems/valid-parentheses/",
+    problemStatement:
+      "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+    constraints: "1 <= s.length <= 10^4",
+    starterCode: "function isValid(s) {\n  // Write your code here\n};",
+    handlerFunction: "isValid",
+    starterFunctionName: "isValid",
+  },
+  {
+    id: "minimum-window-substring",
+    title: "Minimum Window Substring",
+    difficulty: "Hard",
+    category: "String",
+    order: 9,
+    link: "https://leetcode.com/problems/minimum-window-substring/",
+    problemStatement:
+      "Given two strings s and t, return the minimum window substring of s such that every character in t is included in the window.",
+    constraints: "m == s.length, n == t.length, 1 <= m, n <= 10^5",
+    starterCode: "function minWindow(s, t) {\n  // Write your code here\n};",
+    handlerFunction: "minWindow",
+    starterFunctionName: "minWindow",
+  },
+  {
+    id: "wildcard-matching",
+    title: "Wildcard Matching",
+    difficulty: "Hard",
+    category: "String",
+    order: 10,
+    link: "https://leetcode.com/problems/wildcard-matching/",
+    problemStatement:
+      "Implement wildcard pattern matching with support for '?' and '*' where '?' matches any single character and '*' matches any sequence of characters.",
+    constraints: "0 <= s.length, p.length <= 2000",
+    starterCode: "function isMatch(s, p) {\n  // Write your code here\n};",
+    handlerFunction: "isMatch",
+    starterFunctionName: "isMatch",
+  },
+];

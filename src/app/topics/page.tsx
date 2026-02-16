@@ -14,10 +14,7 @@ export default function TopicsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {dsaTopics.map((topic) => (
-            <TopicCard 
-              key={topic.id} 
-              {...topic} 
-            />
+            <TopicCard key={topic.id} {...topic} />
           ))}
         </div>
       </div>
