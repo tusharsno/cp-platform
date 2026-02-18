@@ -25,10 +25,8 @@ import { Pool } from "pg";
 const prismaClientSingleton = () => {
   // 1. Connection pool toiri kora
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-
   // 2. Neon/Postgres adapter create kora
   const adapter = new PrismaPg(pool);
-
   // 3. Adapter-ti client-e pass kora (Ekhon constructor ar faka thakbe na)
   return new PrismaClient({ adapter });
 };
