@@ -23,6 +23,7 @@ import Features from "./components/Features";
 import Hero from "./components/Hero";
 import PopularTopics from "./components/PopularTopics";
 import { syncUser } from "@/lib/auth"; // Step 1: syncUser import kora
+import Process from "./components/Process";
 
 export default async function LandingPage() {
   // Step 2: syncUser() call kora
@@ -35,6 +36,7 @@ export default async function LandingPage() {
       {/* ekhane amra pore Features ebong Popular Topics section jog korbo */}
       <Features />
       <PopularTopics />
+      <Process />
       <CTA />
     </main>
   );

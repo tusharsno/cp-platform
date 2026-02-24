@@ -1,4 +1,127 @@
-// 10/02/2026
+// "use client";
+
+// import { motion } from "framer-motion";
+// import {
+//   BookOpen,
+//   Code,
+//   LineChart,
+//   Zap,
+//   ChevronRight,
+//   ShieldCheck,
+// } from "lucide-react";
+
+// const features = [
+//   {
+//     title: "Topic-wise Learning",
+//     desc: "Master DSA concepts through structured topic guides covering Arrays, Trees, Graphs, and more.",
+//     icon: BookOpen,
+//     className: "md:col-span-2",
+//     color: "from-blue-500 to-cyan-400",
+//     beamColor: "via-blue-500",
+//   },
+//   {
+//     title: "Interactive Coding",
+//     desc: "Write and submit code directly in the browser with instant feedback and an optimized online judge.",
+//     icon: Code,
+//     className: "md:row-span-2 justify-center", // Added justify-center for layout
+//     color: "from-purple-500 to-pink-500",
+//     beamColor: "via-purple-500",
+//   },
+//   {
+//     title: "Track Progress",
+//     desc: "Detailed statistics and real-time heatmaps for your journey.",
+//     icon: LineChart,
+//     className: "",
+//     color: "from-emerald-500 to-teal-400",
+//     beamColor: "via-emerald-500",
+//   },
+//   {
+//     title: "Skill Progression",
+//     desc: "Earn elite badges and certifications as you level up your skills.",
+//     icon: Zap,
+//     className: "",
+//     color: "from-yellow-500 to-orange-400",
+//     beamColor: "via-yellow-500",
+//   },
+// ];
+
+// export default function Features() {
+//   return (
+//     <section className="py-24 relative overflow-hidden bg-background">
+//       <div className="container px-6 mx-auto max-w-7xl">
+//         <div className="flex flex-col items-center text-center mb-20">
+//           <motion.div
+//             initial={{ opacity: 0, y: 10 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true }}
+//             className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/5 dark:border-primary/20 bg-black/[0.03] dark:bg-primary/10 text-slate-500 dark:text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-6"
+//           >
+//             <ShieldCheck className="w-3 h-3" />
+//             The Ecosystem
+//           </motion.div>
+
+//           <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-6 italic uppercase text-slate-900 dark:text-white leading-tight">
+//             Everything You Need <br />
+//             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-600 to-indigo-600 dark:from-white dark:via-primary/80 dark:to-white/50 not-italic uppercase">
+//               To Excel
+//             </span>
+//           </h2>
+
+//           <p className="text-slate-500 dark:text-muted-foreground/60 max-w-2xl text-base md:text-lg leading-relaxed font-medium dark:font-light">
+//             A high-performance environment designed to master algorithms and
+//             dominate technical interviews.
+//           </p>
+//         </div>
+
+//         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px]">
+//           {features.map((f, i) => (
+//             <motion.div
+//               key={i}
+//               initial={{ opacity: 0, y: 20 }}
+//               whileInView={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.5, delay: i * 0.1 }}
+//               viewport={{ once: true }}
+//               className={`group relative rounded-[2rem] border border-black/[0.06] dark:border-white/[0.08] bg-slate-50/50 dark:bg-card/50 backdrop-blur-sm p-8 flex flex-col overflow-hidden transition-all duration-500 hover:border-black/20 dark:hover:border-white/20 hover:bg-white dark:hover:bg-card/80 shadow-sm dark:shadow-none ${f.className}`}
+//             >
+//               {/* Top Section */}
+//               <div className="relative z-10 flex items-start justify-between mb-auto">
+//                 <div
+//                   className={`relative w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${f.color} p-[1px]`}
+//                 >
+//                   <div className="w-full h-full rounded-[11px] bg-white dark:bg-background flex items-center justify-center transition-colors group-hover:bg-transparent">
+//                     <f.icon className="w-6 h-6 text-slate-800 dark:text-white group-hover:text-white transition-colors duration-500" />
+//                   </div>
+//                 </div>
+//                 <ChevronRight className="w-5 h-5 text-slate-300 dark:text-muted-foreground/20 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+//               </div>
+
+//               {/* Text Content */}
+//               <div className="relative z-10 mt-4">
+//                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 italic uppercase tracking-tight group-hover:text-primary transition-colors">
+//                   {f.title}
+//                 </h3>
+//                 <p className="text-slate-500 dark:text-muted-foreground/50 text-sm leading-relaxed max-w-[280px] font-medium dark:font-light">
+//                   {f.desc}
+//                 </p>
+//               </div>
+
+//               {/* Background Glows */}
+//               <div
+//                 className={`absolute -bottom-10 -right-10 w-32 h-32 bg-gradient-to-br ${f.color} blur-[60px] opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-700`}
+//               />
+
+//               {/* Bottom Decorative Beam */}
+//               <div
+//                 className={`absolute bottom-0 left-0 w-full h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 bg-gradient-to-r from-transparent ${f.beamColor} to-transparent`}
+//               />
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -7,8 +130,8 @@ import {
   Code,
   LineChart,
   Zap,
-  Sparkles,
   ChevronRight,
+  ShieldCheck,
 } from "lucide-react";
 
 const features = [
@@ -16,105 +139,115 @@ const features = [
     title: "Topic-wise Learning",
     desc: "Master DSA concepts through structured topic guides covering Arrays, Trees, Graphs, and more.",
     icon: BookOpen,
-    className:
-      "md:col-span-2 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent border-blue-500/20",
-    iconColor: "text-blue-400",
-    pattern:
-      "bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent",
+    className: "md:col-span-2",
+    color: "from-blue-500 to-cyan-400",
+    beamColor: "via-blue-500",
   },
   {
     title: "Interactive Coding",
-    desc: "Write and submit code directly in the browser with instant feedback.",
+    desc: "Write and submit code directly in the browser with instant feedback and an optimized online judge system.",
     icon: Code,
-    className:
-      "md:row-span-2 bg-gradient-to-b from-purple-500/10 via-transparent to-transparent border-purple-500/20",
-    iconColor: "text-purple-400",
-    pattern:
-      "bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-purple-500/5 via-transparent to-transparent",
+    className: "md:row-span-2",
+    color: "from-purple-500 to-pink-500",
+    beamColor: "via-purple-500",
+    isTall: true, // Marker for tall card styling
   },
   {
     title: "Track Progress",
-    desc: "Detailed statistics and heatmaps.",
+    desc: "Detailed statistics and real-time heatmaps for your journey.",
     icon: LineChart,
-    className:
-      "bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent border-emerald-500/20",
-    iconColor: "text-emerald-400",
+    className: "",
+    color: "from-emerald-500 to-teal-400",
+    beamColor: "via-emerald-500",
   },
   {
     title: "Skill Progression",
-    desc: "Earn badges as you level up.",
+    desc: "Earn elite badges and certifications as you level up your skills.",
     icon: Zap,
-    className:
-      "bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent border-yellow-500/20",
-    iconColor: "text-yellow-400",
+    className: "",
+    color: "from-yellow-500 to-orange-400",
+    beamColor: "via-yellow-500",
   },
 ];
 
 export default function Features() {
   return (
-    <section className="py-24 dark:bg-[#030712] relative overflow-hidden">
-      {/* Background Decorative Element */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-border to-transparent" />
-
+    <section className="py-24 relative overflow-hidden bg-background">
       <div className="container px-6 mx-auto max-w-7xl">
+        {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-[0.2em] mb-6"
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 dark:border-primary/20 bg-black/[0.03] dark:bg-primary/10 text-slate-500 dark:text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-6"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400">
-              The Ecosystem
-            </span>
+            <ShieldCheck className="w-3 h-3" />
+            The Ecosystem
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
-            Everything You Need to Excel
+
+          <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-6 italic uppercase text-slate-900 dark:text-white leading-[0.9]">
+            Everything You Need <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-600 to-indigo-600 dark:from-white dark:via-primary/80 dark:to-white/50 not-italic uppercase">
+              To Excel
+            </span>
           </h2>
-          <p className="text-gray-400 max-w-2xl text-lg leading-relaxed font-medium">
-            A high-performance environment designed to help you master
-            algorithms and dominate your next technical interview.
+
+          <p className="text-slate-500 dark:text-muted-foreground/60 max-w-2xl text-base md:text-lg leading-relaxed font-medium dark:font-light mt-4">
+            A high-performance environment designed to master algorithms and
+            dominate technical interviews.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-[220px]">
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px]">
           {features.map((f, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative rounded-[2rem] border p-8 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-white/20 ${f.className}`}
+              className={`group relative rounded-[2.5rem] border border-black/[0.08] dark:border-white/[0.08] bg-slate-50/50 dark:bg-card/40 backdrop-blur-sm p-10 flex flex-col overflow-hidden transition-all duration-500 hover:border-black/20 dark:hover:border-white/20 hover:bg-white dark:hover:bg-card/60 shadow-sm dark:shadow-none ${f.className}`}
             >
-              {/* Pattern Overlay */}
+              {/* Dynamic Spacing based on Card Height */}
               <div
-                className={`absolute inset-0 opacity-40 group-hover:opacity-100 transition-opacity duration-700 ${f.pattern}`}
-              />
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-6">
+                className={`relative z-10 flex flex-col h-full ${f.isTall ? "justify-between" : "justify-between"}`}
+              >
+                {/* Icon & Arrow Row */}
+                <div className="flex items-start justify-between">
                   <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center bg-black/40 border border-white/10 backdrop-blur-sm group-hover:scale-110 group-hover:border-primary/50 transition-all duration-500`}
+                    className={`relative w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-br ${f.color} p-[1px] shadow-lg shadow-black/5`}
                   >
-                    <f.icon className={`w-6 h-6 ${f.iconColor}`} />
+                    <div className="w-full h-full rounded-[15px] bg-white dark:bg-slate-950 flex items-center justify-center transition-colors group-hover:bg-transparent">
+                      <f.icon className="w-7 h-7 text-slate-800 dark:text-white group-hover:text-white transition-colors duration-500" />
+                    </div>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-white/10 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <div className="w-8 h-8 rounded-full border border-black/5 dark:border-white/5 flex items-center justify-center bg-white/50 dark:bg-white/5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 transition-all duration-300">
+                    <ChevronRight className="w-4 h-4 text-primary" />
+                  </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:tracking-tight transition-all">
-                  {f.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed max-w-[200px] group-hover:text-gray-300 transition-colors">
-                  {f.desc}
-                </p>
+                {/* Text Content Area */}
+                <div className={`${f.isTall ? "mb-4" : ""}`}>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 italic uppercase tracking-tight group-hover:text-primary transition-colors duration-300">
+                    {f.title}
+                  </h3>
+                  <p className="text-slate-500 dark:text-muted-foreground/60 text-sm md:text-base leading-relaxed max-w-[320px] font-medium dark:font-light">
+                    {f.desc}
+                  </p>
+                </div>
               </div>
 
-              {/* Bottom Glow Effect */}
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-primary/10 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              {/* Decorative Background Glow */}
+              <div
+                className={`absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br ${f.color} blur-[80px] opacity-0 group-hover:opacity-10 dark:group-hover:opacity-[0.15] transition-opacity duration-1000`}
+              />
+
+              {/* Interactive Beam */}
+              <div
+                className={`absolute bottom-0 left-0 w-full h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 bg-gradient-to-r from-transparent ${f.beamColor} to-transparent`}
+              />
             </motion.div>
           ))}
         </div>
@@ -122,118 +255,3 @@ export default function Features() {
     </section>
   );
 }
-
-// "use client";
-
-// import { motion } from "framer-motion";
-// import { BookOpen, Code, LineChart, Zap, ChevronRight } from "lucide-react";
-
-// const features = [
-//   {
-//     title: "Topic-wise Learning",
-//     desc: "Master DSA concepts through structured topic guides covering Arrays, Trees, Graphs, and more.",
-//     icon: BookOpen,
-//     className:
-//       "md:col-span-2 bg-gradient-to-br from-blue-600/10 via-transparent to-transparent border-blue-500/10",
-//     iconColor: "text-blue-400",
-//     glow: "group-hover:shadow-[0_0_40px_-10px_rgba(37,99,235,0.2)]",
-//   },
-//   {
-//     title: "Interactive Coding",
-//     desc: "Write and submit code directly in the browser with instant feedback.",
-//     icon: Code,
-//     className:
-//       "md:row-span-2 bg-gradient-to-b from-purple-600/10 via-transparent to-transparent border-purple-500/10",
-//     iconColor: "text-purple-400",
-//     glow: "group-hover:shadow-[0_0_40px_-10px_rgba(147,51,234,0.2)]",
-//   },
-//   {
-//     title: "Track Progress",
-//     desc: "Detailed statistics and heatmaps to monitor growth.",
-//     icon: LineChart,
-//     className:
-//       "bg-gradient-to-br from-emerald-600/10 via-transparent to-transparent border-emerald-500/10",
-//     iconColor: "text-emerald-400",
-//     glow: "group-hover:shadow-[0_0_40px_-10px_rgba(16,185,129,0.2)]",
-//   },
-//   {
-//     title: "Skill Progression",
-//     desc: "Earn badges and level up your ranking.",
-//     icon: Zap,
-//     className:
-//       "bg-gradient-to-br from-yellow-600/10 via-transparent to-transparent border-yellow-500/10",
-//     iconColor: "text-yellow-400",
-//     glow: "group-hover:shadow-[0_0_40px_-10px_rgba(234,179,8,0.2)]",
-//   },
-// ];
-
-// export default function Features() {
-//   return (
-//     <section className="py-24 bg-[#020617] relative overflow-hidden">
-//       {/* Background Grid Pattern */}
-//       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-
-//       <div className="container px-6 mx-auto max-w-7xl relative z-10">
-//         <div className="flex flex-col items-center text-center mb-20">
-//           <motion.div
-//             initial={{ opacity: 0, y: 10 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
-//           >
-//             <span className="relative flex h-2 w-2">
-//               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-//               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-//             </span>
-//             <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400">
-//               The Ecosystem
-//             </span>
-//           </motion.div>
-
-//           <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40">
-//             Everything You Need to Excel
-//           </h2>
-//           <p className="text-gray-400 max-w-2xl text-lg font-medium leading-relaxed">
-//             A high-performance environment designed to help you master
-//             algorithms and dominate your next technical interview.
-//           </p>
-//         </div>
-
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px]">
-//           {features.map((f, i) => (
-//             <motion.div
-//               key={i}
-//               initial={{ opacity: 0, y: 20 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 0.5, delay: i * 0.1 }}
-//               viewport={{ once: true }}
-//               className={`group relative rounded-[2.5rem] border p-8 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-white/20 ${f.className} ${f.glow}`}
-//             >
-//               <div className="relative z-10">
-//                 <div className="flex items-center justify-between mb-8">
-//                   <div
-//                     className={`w-12 h-12 rounded-2xl flex items-center justify-center bg-black/40 border border-white/5 backdrop-blur-xl group-hover:scale-110 group-hover:border-primary/50 transition-all duration-500`}
-//                   >
-//                     <f.icon className={`w-6 h-6 ${f.iconColor}`} />
-//                   </div>
-//                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-x-4 group-hover:translate-x-0">
-//                     <ChevronRight className="w-5 h-5 text-gray-500" />
-//                   </div>
-//                 </div>
-
-//                 <h3 className="text-2xl font-bold text-white mb-3 tracking-tight transition-all">
-//                   {f.title}
-//                 </h3>
-//                 <p className="text-gray-400 text-sm font-medium leading-relaxed max-w-[220px]">
-//                   {f.desc}
-//                 </p>
-//               </div>
-
-//               {/* Decorative Corner Element */}
-//               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-//             </motion.div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
